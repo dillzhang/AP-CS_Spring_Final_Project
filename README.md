@@ -25,6 +25,6 @@ Changelog
 | Timestamp  | Contributor  | Description |
 |:-----------|:------------:|:------------|
 | 2015-05-19 | DZ           | Created Repo and README.md |  
-| 2015-05-19 | DZ           | Created Main.pde, Board.pde\n Wrote Board(), drawBoard() for Board |
-| 2015-05-19 | DZ           | Created Piece.pde, PieceXX.pde\n Wrote Abstract drawPiece() for Piece\n Setup drawPiece() for PieceXX |
+| 2015-05-19 | DZ           | Created Main.pde, Board.pde; |
+| 2015-05-19 | DZ           | Created Piece.pde, PieceXX.pde; Setup drawPiece() |
 
