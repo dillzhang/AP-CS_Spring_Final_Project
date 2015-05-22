@@ -5,22 +5,10 @@ public class Board {
   
   //int[][] to store the locations of board pieces based on an integer value
   private int[][] board;  
-  
-  //Different board pieces 
-  private Piece00 p00 = new Piece00();
-  private Piece01 p01 = new Piece01();
-  private Piece02 p02 = new Piece02();
-  private Piece03 p03 = new Piece03();
-  private Piece04 p04 = new Piece04();
-  private Piece05 p05 = new Piece05();
-  private Piece06 p06 = new Piece06();
-  private Piece07 p07 = new Piece07();
-  private Piece08 p08 = new Piece08();
-  private Piece09 p09 = new Piece09();
-  private Piece10 p10 = new Piece10();
+ 
   
   //Stores the different types of board pieces
-  private Piece[] pieces = {p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10};
+  private String[] pieces = {};
   
   //Constructs a board with a given filename or path
   //  File must be formatted as follows
