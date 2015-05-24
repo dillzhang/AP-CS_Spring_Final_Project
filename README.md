@@ -27,4 +27,6 @@ Changelog
 | 2015-05-19 | DZ           | Created Repo and README.md |  
 | 2015-05-19 | DZ           | Created Main.pde, Board.pde; |
 | 2015-05-19 | DZ           | Created Piece.pde, PieceXX.pde; Setup drawPiece() |
+| 2015-05-22 | SWL          | Edited files to reflect change in approach to drawing the game board |
+
 
