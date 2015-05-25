@@ -28,5 +28,6 @@ Changelog
 | 2015-05-19 | DZ           | Created Main.pde, Board.pde; |
 | 2015-05-19 | DZ           | Created Piece.pde, PieceXX.pde; Setup drawPiece() |
 | 2015-05-22 | SWL          | Edited files to reflect change in approach to drawing the game board |
+| 2015-05-24 | SWL          | Began working on High Score screen (to be integrated later) |
 
 
