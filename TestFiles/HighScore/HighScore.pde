@@ -15,7 +15,7 @@ void setup() {
 }
 
 int addScore() {
-  BufferedReader reader = createReader("scores.txt");
+  BufferedReader reader = createReader("scores.dat");
   int addIndex = -1;
   try {
     reader.readLine();
@@ -55,7 +55,7 @@ void addScore(String name, int addIndex) {
   }
   scores[addIndex] = score;
   names[addIndex] = name;
-  PrintWriter writer = createWriter("scores.txt");
+  PrintWriter writer = createWriter("scores.dat");
   writer.println("Rank|Score|Name");
   for (int i = 0; i < 10; i++) {
     writer.println(ranks[i] + "|" + scores[i] + "|" + names[i]);
@@ -66,7 +66,7 @@ void addScore(String name, int addIndex) {
 }
 
 void displayScores() {
-  BufferedReader reader = createReader("scores.txt");
+  BufferedReader reader = createReader("scores.dat");
   
   String s = "";
   textAlign(CENTER,TOP);
