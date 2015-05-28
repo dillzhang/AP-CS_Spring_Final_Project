@@ -30,4 +30,4 @@ Changelog
 | 2015-05-22 | SWL          | Edited files to reflect change in approach to drawing the game board |
 | 2015-05-24 | SWL          | Began working on High Score screen (to be integrated later) |
 | 2015-05-24 | DZ           | Selected Reference File for the board |
-
+| 2015-05-28 | DZ           | Created Board, Reading in Board |
