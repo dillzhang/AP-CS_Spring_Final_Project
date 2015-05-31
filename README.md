@@ -31,3 +31,4 @@ Changelog
 | 2015-05-24 | SWL          | Began working on High Score screen (to be integrated later) |
 | 2015-05-24 | DZ           | Selected Reference File for the board |
 | 2015-05-28 | DZ           | Created Board, Reading in Board |
+| 2015-05-31 | DZ           | Started to create the pieces of the board |
