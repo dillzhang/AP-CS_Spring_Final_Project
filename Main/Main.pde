@@ -15,5 +15,5 @@ void mouseClicked() {
 }
 
 void keyPressed() {
-  
+  b.drawBoard();
 }
