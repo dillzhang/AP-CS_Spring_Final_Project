@@ -33,3 +33,4 @@ Changelog
 | 2015-05-28 | DZ           | Created Board, Reading in Board |
 | 2015-05-31 | DZ           | Started to create the pieces of the board |
 | 2015-05-31 | SWL          | Began working on 3-letter name input for the high score |
+| 2015-05-31 | DZ           | Finished board's skeleton |
