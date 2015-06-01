@@ -13,30 +13,30 @@ void setup() {
   background(0);
   readScore();
   //scoreSubmit = false;
-  promptName();
+  resetName();
   //displayScores();
 }
 
-boolean promptName(){
+boolean resetName(){
   background(0);
-  
-  fill(0,0,255);
-  noStroke();
-  //top triangles
-  triangle(56, 250,168,250,112,200);
-  triangle(224,250,336,250,280,200);
-  triangle(392,250,504,250,448,200);
-  
-  //lower triangles
-  triangle(56, 450,168,450,112,500);
-  triangle(224,450,336,450,280,500);
-  triangle(392,450,504,450,448,500);
-  
+  textAlign(CENTER,TOP);
+  textSize(75);
+  text("Enter Your\nName",280,5);
   scoreSubmit = false;
   // 32 = space, 48 = 0, 57 = 9,65 = A, 90 = Z, 97 = a, 112 = z
   for (int i = 0; i < letters.length;i++) {
     letters[i] = 65;
   }
+  rectMode(CENTER);
+  fill(0,0,255);
+  rect(280,600,100,50);
+  fill(0);
+  rect(280,600,90,40);
+  textAlign(CENTER,CENTER);
+  fill(255);
+  textSize(25);
+  text("Submit",280,600);
+  rectMode(CORNER);
   return true;
 }
 
@@ -54,6 +54,18 @@ void fixCount() {
   }
 }
 void displayName() {
+  fill(0,0,255);
+  noStroke();
+  //top triangles
+  triangle(56, 250,168,250,112,200);
+  triangle(224,250,336,250,280,200);
+  triangle(392,250,504,250,448,200);
+  
+  //lower triangles
+  triangle(56, 450,168,450,112,500);
+  triangle(224,450,336,450,280,500);
+  triangle(392,450,504,450,448,500);
+  
   fill(0);
   rect(0,250,560,200);
   fill(255);
@@ -63,6 +75,51 @@ void displayName() {
   text((char) letters[1],280,250);
   text((char) letters[2],448,250);
 }
+
+void hiTri(int n) {
+  fill(204,229,255);
+  frameRate(.25);
+  if (n == 1) triangle(56, 250,168,250,112,200);
+  if (n == 2) triangle(224,250,336,250,280,200);
+  if (n == 3) triangle(392,250,504,250,448,200);
+  if (n == 4) triangle(56, 450,168,450,112,500);
+  if (n == 5) triangle(224,450,336,450,280,500);
+  if (n == 6) triangle(392,450,504,450,448,500);
+  frameRate(60);
+}
+
+void changeCount(int X, int Y) {
+  if (Y > 200 && Y < 250){
+      if (X > 56 && X < 168) {
+        letters[0]--;
+        hiTri(1);
+      }
+      if (X > 224 && X < 336) {
+        letters[1]--;
+        hiTri(2);
+      }
+      if (X > 392 && X < 504) {
+        letters[2]--;
+        hiTri(3);
+      }
+    }
+    
+    if (Y > 450 && Y < 500) {
+      if (X > 56 && X < 168) {
+        letters[0]++;
+        hiTri(4);
+      }
+      if (X > 224 && X < 336) {
+        letters[1]++;
+        hiTri(5);
+      }
+      if (X > 392 && X < 504) {
+        letters[2]++;
+        hiTri(6);
+      }
+    }
+}
+
 void readScore() {
   BufferedReader reader = createReader("scores.dat");
   try {
@@ -126,7 +183,6 @@ void displayScores() {
   textAlign(CENTER,TOP);
   textSize(90);
   text("High Scores",280,20);
-  //textAlign(LEFT,TOP);
   textSize(30);
   for(int i = 0; i < 11; i++) {
     try {
@@ -143,26 +199,18 @@ void displayScores() {
     }
   }
 }
-void keyPressed() {
-   if (!scoreSubmit) scoreSubmit = true;
-}
+//void keyPressed() {
+//   if (!scoreSubmit) scoreSubmit = true;
+//}
 
 void mouseClicked() {
   if (!scoreSubmit) {
-    if (mouseY > 200 && mouseY < 250){
-      if (mouseX > 56 && mouseX < 168) letters[0]--;
-      if (mouseX > 224 && mouseX < 336) letters[1]--;
-      if (mouseX > 392 && mouseX < 504) letters[2]--;
-    }
-    
-    if (mouseY > 450 && mouseY < 500) {
-      if (mouseX > 56 && mouseX < 168) letters[0]++;
-      if (mouseX > 224 && mouseX < 336) letters[1]++;
-      if (mouseX > 392 && mouseX < 504) letters[2]++;
-    }
+    changeCount(mouseX,mouseY);
     fixCount();
   }
 }
+
+
 void draw() {
   if (!scoreSubmit) displayName();
 }
