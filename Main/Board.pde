@@ -23,6 +23,24 @@ public class Board {
   private PImage d12 = loadImage("images/d12.jpg");
   private PImage d13 = loadImage("images/d13.jpg");
   
+  private PImage dh0 = loadImage("images/dh0.jpg");
+  private PImage dh1 = loadImage("images/dh1.jpg");
+  private PImage dh2 = loadImage("images/dh2.jpg");
+  private PImage dh3 = loadImage("images/dh3.jpg");
+  
+  private PImage dv0 = loadImage("images/dv0.jpg");
+  private PImage dv1 = loadImage("images/dv1.jpg");
+  private PImage dv2 = loadImage("images/dv2.jpg");
+  private PImage dv3 = loadImage("images/dv3.jpg");
+  
+  private PImage c0 = loadImage("images/c0.jpg");
+  private PImage c1 = loadImage("images/c1.jpg");
+  private PImage c2 = loadImage("images/c2.jpg");
+  private PImage c3 = loadImage("images/c3.jpg");
+  
+  private PImage vW = loadImage("images/vW.jpg");
+  private PImage hW = loadImage("images/hW.jpg");
+  
   private PImage dot = loadImage("images/dot.jpg");
   private PImage powerDot = loadImage("images/powerDot.jpg");
   
@@ -30,10 +48,10 @@ public class Board {
      d0,  d1,  d2,  d3, d4, //0
      d5,  d6,  d7,  d8, null, //1
     d10, d11, d12, d13, null, //2
-    null, null, null, null, null, //3
-    null, null, null, null, null, //4
-    null, null, null, null, null, //5
-    null, null, null, null, null, //6
+    dh0, dh1, dh2, dh3, null, //3
+    dv0, dv1, dv2, dv3, null, //4
+     c0,  c1,  c2,  c3, null, //5
+     vW,  hW, null, null, null, //6
     null, null, null, null, null, //7
     null, null, null, null, null, //8
     null, null, null, null, null, //9
