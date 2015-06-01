@@ -35,4 +35,4 @@ Changelog
 | 2015-05-31 | SWL          | Began working on 3-letter name input for the high score |
 | 2015-05-31 | DZ           | Finished board's skeleton |
 | 2015-06-01 | SWL          | Added unfunctional submit button and made character arrows flash |
-
+| 2015-06-01 | DZ           | Added Pacman Sprite to Board, Animated Power Dots |

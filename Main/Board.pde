@@ -1,7 +1,9 @@
 import java.util.*;
 
 public class Board {
-
+  //int to determine the instance of animation
+  private int animation = 0;
+  
   //int[][] to store the locations of board pieces based on an integer value
   private int[][] board;  
   
@@ -86,13 +88,29 @@ public class Board {
     return null;
   }
 
+  public void nextStep() {
+    animation = (animation + 1) % 10;
+  }
+
   //Draw the board by parsing int[][] and drawing the piece associated with that value
   public void drawBoard() {
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[i].length; j++) {
-        image(pieces[board[i][j]],20 * j, 20 * i + 60);
+        if (board[i][j] == 52) {
+          System.out.println(board[i][j] - 2 * (animation / 5));
+          image(pieces[board[i][j] - 2 * (animation / 5)],20 * j, 20 * i + 60);
+        } else {
+          image(pieces[board[i][j]],20 * j, 20 * i + 60);
+        }
       }
     }
+  }
+  
+  void draw() {
+    System.out.println(animation);
+    nextStep();
+    System.out.println(animation);
+    drawBoard();
   }
 }
 
