@@ -29,18 +29,18 @@ public class Ghost {
   public void drawSprite() {
     fill(skin);
     System.out.println();
-    rect(xcor-10.5,ycor-1,21,9);
-    arc(xcor, ycor, 21, 21, PI, 2 * PI);
+    rect(xcor-12.5,ycor-1,25,10);
+    arc(xcor, ycor, 25, 25, PI, 2 * PI);
     
     if (animation < 5) {
-      arc(xcor-7, ycor+8,5,5  ,0,PI);
-      arc(xcor, ycor+8,5,5,0,PI);
-      arc(xcor+7, ycor+8,5,5,0,PI);
+      arc(xcor-8, ycor+9,7,7,0,PI);
+      arc(xcor, ycor+9,7,7,0,PI);
+      arc(xcor+8, ycor+9,7,7,0,PI);
     } else {
-      arc(xcor-7.5, ycor+8,5,5  ,0,PI);
-      arc(xcor-2.5, ycor+8,5,5,0,PI);
-      arc(xcor+2.5, ycor+8,5,5,0,PI);
-      arc(xcor+7.5, ycor+8,5,5,0,PI);
+      arc(xcor-9, ycor+9,7,7,0,PI);
+      arc(xcor-3, ycor+9,7,7,0,PI);
+      arc(xcor+3, ycor+9,7,7,0,PI);
+      arc(xcor+9, ycor+9,7,7,0,PI);
     }
     
     
