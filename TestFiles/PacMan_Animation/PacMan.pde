@@ -24,7 +24,7 @@ public class PacMan {
     color yellow = color(255,255,0);
     fill(yellow);
     System.out.println();
-    arc(x, y, 25, 13, directionValues[direction] + animationValues[animation] * PI / 12, 2 * PI + directionValues[direction] - animationValues[animation] * PI / 12, PIE);
+    arc(x, y, 25, 25, directionValues[direction] + animationValues[animation] * PI / 12, 2 * PI + directionValues[direction] - animationValues[animation] * PI / 12, PIE);
   }
   
   void keyPressed() {
