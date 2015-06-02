@@ -37,4 +37,4 @@ Changelog
 | 2015-06-01 | SWL          | Added unfunctional submit button and made character arrows flash |
 | 2015-06-01 | DZ           | Added Pacman Sprite to Board, Animated Power Dots |
 | 2015-06-01 | SWL          | Made the submit button functional in High Score Screen |
-
+| 2015-06-02 | SWL / DZ     | Made Spooky Ghosts Sprites, Selected DZ's |
