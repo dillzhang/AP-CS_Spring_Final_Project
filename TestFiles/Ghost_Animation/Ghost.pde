@@ -21,26 +21,26 @@ public class Ghost {
   }
   
   public void nextStep() {
-    xcor += delta[direction][0] * 3;
-    ycor += delta[direction][1] * 3;
+    xcor += delta[direction][0] * 5;
+    ycor += delta[direction][1] * 5;
     animation = (animation + 1) % 10;
   }
   
   public void drawSprite() {
     fill(skin);
     System.out.println();
-    rect(xcor-12.5,ycor-1,25,10);
+    rect(xcor-12.5,ycor-1,25,8);
     arc(xcor, ycor, 25, 25, PI, 2 * PI);
     
     if (animation < 5) {
-      arc(xcor-8, ycor+9,7,7,0,PI);
-      arc(xcor, ycor+9,7,7,0,PI);
-      arc(xcor+8, ycor+9,7,7,0,PI);
+      arc(xcor-8, ycor+7,7,10,0,PI);
+      arc(xcor, ycor+7,7,10,0,PI);
+      arc(xcor+8, ycor+7,7,10,0,PI);
     } else {
-      arc(xcor-9, ycor+9,7,7,0,PI);
-      arc(xcor-3, ycor+9,7,7,0,PI);
-      arc(xcor+3, ycor+9,7,7,0,PI);
-      arc(xcor+9, ycor+9,7,7,0,PI);
+      arc(xcor-9, ycor+7,7,10,0,PI);
+      arc(xcor-3, ycor+7,7,10,0,PI);
+      arc(xcor+3, ycor+7,7,10,0,PI);
+      arc(xcor+9, ycor+7,7,10,0,PI);
     }
     
     
