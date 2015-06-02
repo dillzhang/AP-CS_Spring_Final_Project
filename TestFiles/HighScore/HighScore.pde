@@ -6,7 +6,7 @@ private int[][] colors = new int[][] {
   {255,255,255}, {255,0,0}, {255,127,0}, {255,255,0}, {127,255,0}, {0,255,127}, 
   {0,255,255}, {0,0,255}, {127,0,255}, {255,0,255}, {255,0,127} };
 private int score = 1000;
-private boolean scoreSubmit = false;
+private boolean scoreSubmit = true;
 private int[] letters = new int[] {65,65,65};
 void setup() {
   size(560,720);
@@ -19,6 +19,7 @@ void setup() {
 
 boolean resetName(){
   background(0);
+  fill(255);
   textAlign(CENTER,TOP);
   textSize(75);
   text("Enter Your\nName",280,5);
@@ -27,6 +28,7 @@ boolean resetName(){
   for (int i = 0; i < letters.length;i++) {
     letters[i] = 65;
   }
+  noStroke();
   rectMode(CENTER);
   fill(0,0,255);
   rect(280,600,100,50);
@@ -159,7 +161,8 @@ int addScore() {
 }
 
 
-void addScore(String name, int addIndex) {
+boolean addScore(String name, int addIndex) {
+  if (addIndex == -1) return false;
   for (int i = 9; i > addIndex; i--) {
     scores[i] = scores[i - 1];
     names[i] = names[i - 1];
@@ -173,13 +176,14 @@ void addScore(String name, int addIndex) {
   }
   
   writer.close();
-  
+  scoreSubmit = true;
+  return true;
 }
 
 void displayScores() {
   BufferedReader reader = createReader("scores.dat");
-  
   String s = "";
+  background(0);
   textAlign(CENTER,TOP);
   textSize(90);
   text("High Scores",280,20);
@@ -205,8 +209,14 @@ void displayScores() {
 
 void mouseClicked() {
   if (!scoreSubmit) {
-    changeCount(mouseX,mouseY);
-    fixCount();
+    if (mouseX > 230 && mouseX < 330 && mouseY > 575 && mouseY < 625) {
+      addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addScore());
+      displayScores();
+    }
+    else {
+      changeCount(mouseX,mouseY);
+      fixCount();
+    }
   }
 }
 
