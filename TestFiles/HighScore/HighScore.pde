@@ -3,9 +3,9 @@ private int[] scores = new int[10];
 private String[] names = new String[10];
 private String[] ranks = new String[] {"1st","2nd","3rd","4th","5th","6th","7th","8th","9th","10th"};
 private int[][] colors = new int[][] {
-  {255,255,255}, {255,0,0}, {255,127,0}, {255,255,0}, {127,255,0}, {0,255,127}, 
-  {0,255,255}, {0,0,255}, {127,0,255}, {255,0,255}, {255,0,127} };
-private int score = 1000;
+  {255,255,255}, {127,0,255}, {255,0,255}, {255,0,127}, {255,0,0}, {255,127,0}, {255,255,0}, {127,255,0}, {0,255,127}, 
+  {0,255,255}, {0,0,255}};
+private int score = 10000;
 private boolean scoreSubmit = true;
 private int[] letters = new int[] {65,65,65};
 void setup() {
