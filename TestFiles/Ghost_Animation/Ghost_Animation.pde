@@ -11,7 +11,7 @@ void setup() {
 
 void draw() {
   background(100);
-  g.drawSprite();
+  g.drawScaredSprite();
   g.nextStep();
 }
 

@@ -28,7 +28,7 @@ public class Ghost {
   
   public void drawSprite() {
     fill(skin);
-    System.out.println();
+    println();
     rect(xcor-12.5,ycor-1,25,8);
     arc(xcor, ycor, 25, 25, PI, 2 * PI);
     
@@ -46,6 +46,38 @@ public class Ghost {
     
   }
   
+  public void drawScaredSprite() {
+    fill(0,0,255);
+    println();
+    rect(xcor-12.5,ycor-1,25,8);
+    arc(xcor, ycor, 25, 25, PI, 2 * PI);
+    
+    if (animation < 5) {
+      arc(xcor-8, ycor+7,7,12,0,PI);
+      arc(xcor, ycor+7,7,12,0,PI);
+      arc(xcor+8, ycor+7,7,12,0,PI);
+    } else {
+      arc(xcor-9, ycor+7,7,12,0,PI);
+      arc(xcor-3, ycor+7,7,12,0,PI);
+      arc(xcor+3, ycor+7,7,12,0,PI);
+      arc(xcor+9, ycor+7,7,12,0,PI);
+    }
+    
+    fill(255);
+    noStroke();
+    rect(xcor - 5.25, ycor - 4, 3, 3);
+    rect(xcor + 3.25, ycor - 4, 3, 3);
+    stroke(255);
+    strokeWeight(1.5);
+    line(xcor - 9, ycor + 6, xcor - 6, ycor + 3);
+    line(xcor - 6, ycor + 3, xcor - 3, ycor + 6); 
+    line(xcor - 3, ycor + 6, xcor, ycor + 3);
+    line(xcor, ycor + 3, xcor + 3, ycor + 6);
+    line(xcor + 3, ycor + 6, xcor + 6, ycor + 3);
+    line(xcor + 6, ycor + 4, xcor + 9, ycor + 6);
+    strokeWeight(1);
+    stroke(0);
+  }
   void keyPressed() {
     if (key == 'd') {
       setDirection(0);
