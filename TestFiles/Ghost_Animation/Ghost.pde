@@ -33,14 +33,14 @@ public class Ghost {
     arc(xcor, ycor, 25, 25, PI, 2 * PI);
     
     if (animation < 5) {
-      arc(xcor-8, ycor+7,7,10,0,PI);
-      arc(xcor, ycor+7,7,10,0,PI);
-      arc(xcor+8, ycor+7,7,10,0,PI);
+      arc(xcor-8, ycor+7,7,12,0,PI);
+      arc(xcor, ycor+7,7,12,0,PI);
+      arc(xcor+8, ycor+7,7,12,0,PI);
     } else {
-      arc(xcor-9, ycor+7,7,10,0,PI);
-      arc(xcor-3, ycor+7,7,10,0,PI);
-      arc(xcor+3, ycor+7,7,10,0,PI);
-      arc(xcor+9, ycor+7,7,10,0,PI);
+      arc(xcor-9, ycor+7,7,12,0,PI);
+      arc(xcor-3, ycor+7,7,12,0,PI);
+      arc(xcor+3, ycor+7,7,12,0,PI);
+      arc(xcor+9, ycor+7,7,12,0,PI);
     }
     
     

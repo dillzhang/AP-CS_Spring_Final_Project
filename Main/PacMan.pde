@@ -32,13 +32,13 @@ public class PacMan {
   }
   
   void keyPressed() {
-    if (key == 'D') {
+    if (key == 'd') {
       p.setDirection(0);
-    } else if (key == 'S') {
+    } else if (key == 's') {
       p.setDirection(1);
-    } else if (key == 'A') {
+    } else if (key == 'a') {
       p.setDirection(2);
-    } else if (key == 'W') {
+    } else if (key == 'w') {
       p.setDirection(3);
     }
   }

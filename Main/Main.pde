@@ -16,10 +16,6 @@ void draw() {
   p.draw();
 }
 
-void mouseClicked() {
-  
-}
-
 void keyPressed() {
   p.keyPressed();
 }
