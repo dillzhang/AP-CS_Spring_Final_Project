@@ -1,11 +1,11 @@
 Ghost g;
 
 void setup() {
-  size(400,400);
+  size(400, 400);
   background(0);
   frameRate(15);
-  
-  color red = color(255,0,0);
+
+  color red = color(255, 0, 0);
   g = new Ghost(red);
 }
 
@@ -18,3 +18,4 @@ void draw() {
 void keyPressed() {
   g.keyPressed();
 }
+
