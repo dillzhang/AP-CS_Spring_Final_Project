@@ -1,13 +1,20 @@
 import java.util.*;
 
 public class Board {
+  
+// INSTANCE VARIABLES ====================================================================================================================================================================================
+  
+  //ANIMATION
   //int to determine the instance of animation
   private int animation = 0;
+  private final int animationrate = 6;
+  private final int animationstep  = 2;
   
+  //BOARD 
   //int[][] to store the locations of board pieces based on an integer value
   private int[][] board;  
   
-  //Stores the different types of board pieces
+  //Loads the different images for the board pieces
   private PImage d0 = loadImage("images/black.jpg");
   
   private PImage d1 = loadImage("images/d1.jpg");
@@ -46,6 +53,7 @@ public class Board {
   private PImage dot = loadImage("images/dot.jpg");
   private PImage powerDot = loadImage("images/powerDot.jpg");
   
+  //Stores the different values for the board
   private PImage[] pieces = {
      d0,  d1,  d2,  d3, d4, //0
      d5,  d6,  d7,  d8, null, //1
@@ -60,6 +68,9 @@ public class Board {
      d0, dot, powerDot, null, null  //10
   };
 
+// METHODS ===============================================================================================================================================================================================
+
+  //CONSTRUCTOR
   //Constructs a board with a given filename or path
   //  File must be formatted as follows
   //    -Line 1: int h, Height of the Board
@@ -76,7 +87,8 @@ public class Board {
     }
   }
 
-  //Draw the board by parsing int[][] and drawing the piece associated with that value
+  //debugBoard()
+  //Draw the board by parsing int[][] and drawing the piece associated with that value for debugging the constructor
   public void debugBoard() {
     for (int i = 0; i < board.length; i++) {
       System.out.println(Arrays.toString(board[i]));
@@ -89,7 +101,7 @@ public class Board {
   }
 
   public void nextStep() {
-    animation = (animation + 1) % 10;
+    animation = (animation + 1) % animationrate;
   }
 
   //Draw the board by parsing int[][] and drawing the piece associated with that value
@@ -97,8 +109,7 @@ public class Board {
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[i].length; j++) {
         if (board[i][j] == 52) {
-          System.out.println(board[i][j] - 2 * (animation / 5));
-          image(pieces[board[i][j] - 2 * (animation / 5)],20 * j, 20 * i + 60);
+          image(pieces[board[i][j] - 2 * (animationstep * animation / animationrate)],20 * j, 20 * i + 60);
         } else {
           image(pieces[board[i][j]],20 * j, 20 * i + 60);
         }
