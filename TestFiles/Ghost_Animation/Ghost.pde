@@ -44,6 +44,34 @@ public class Ghost {
     }
     
     
+    fill(255);
+    ellipse(xcor - 5, ycor - 4, 6,8);
+    ellipse(xcor + 5, ycor - 4, 6,8);
+    fill(0,0,255);
+    noStroke();
+    
+    if (direction == 0) {
+      ellipse(xcor + 6, ycor - 3, 4, 4);
+      ellipse(xcor - 3, ycor - 3, 4, 4);
+    }
+    
+    if (direction == 1) {
+      ellipse(xcor + 5, ycor - 2, 4,4);
+      ellipse(xcor - 5, ycor - 2, 4,4);
+    }
+    
+    if (direction == 2) {
+      ellipse(xcor - 6, ycor - 3, 4, 4);
+      ellipse(xcor + 3, ycor - 3, 4, 4);
+    }
+    if (direction == 3) {
+      ellipse(xcor + 5, ycor - 6, 4,4);
+      ellipse(xcor - 5, ycor - 6, 4,4);
+    }
+    
+    strokeWeight(1);
+    
+    
   }
   
   public void drawScaredSprite() {
