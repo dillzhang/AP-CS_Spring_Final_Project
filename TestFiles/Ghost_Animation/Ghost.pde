@@ -33,12 +33,16 @@ public class Ghost {
     color mouth = skin;
     color whites = color(255,255,255);
     color eyes = color(40,80,251);
+    int xdir = delta[direction][0];
+    int ydir = delta[direction][1];
         
     if (scared) {
       filler = color(40,80,251);
       mouth = color (255);
       eyes = whites;
       whites = filler;
+      xdir = 0;
+      ydir = 0;
     }
     
     fill(filler);
@@ -62,8 +66,8 @@ public class Ghost {
     
     fill(eyes);
     noStroke();
-    ellipse(xcor + 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);
-    ellipse(xcor - 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);    
+    ellipse(xcor + 5 + 2 * xdir, ycor - 3 + 2 * ydir, 4, 4);
+    ellipse(xcor - 5 + 2 * xdir, ycor - 3 + 2 * ydir, 4, 4);    
     
     stroke(mouth);
     strokeWeight(1.5);
