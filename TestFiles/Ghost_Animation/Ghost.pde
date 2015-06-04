@@ -1,5 +1,7 @@
 public class Ghost {
+  
   private color skin;
+  private boolean scared = false;
   
   private int xcor = 100, ycor = 100;
   private int xbor = 0, ybor = 0;
@@ -27,85 +29,54 @@ public class Ghost {
   }
   
   public void drawSprite() {
-    fill(skin);
-    println();
-    rect(xcor-12.5,ycor-1,25,8);
+    color filler = skin;
+    color mouth = skin;
+    color whites = color(255,255,255);
+    color eyes = color(40,80,251);
+        
+    if (scared) {
+      filler = color(40,80,251);
+      mouth = color (255);
+      eyes = whites;
+      whites = filler;
+    }
+    
+    fill(filler);
+    rect(xcor-12.5,ycor-1,25,9);
     arc(xcor, ycor, 25, 25, PI, 2 * PI);
     
+    arc(xcor-9, ycor+8,7,10,0,PI);
     if (animation < 5) {
-      arc(xcor-8, ycor+7,7,12,0,PI);
-      arc(xcor, ycor+7,7,12,0,PI);
-      arc(xcor+8, ycor+7,7,12,0,PI);
+      arc(xcor, ycor+8,7,10,0,PI);
     } else {
-      arc(xcor-9, ycor+7,7,12,0,PI);
-      arc(xcor-3, ycor+7,7,12,0,PI);
-      arc(xcor+3, ycor+7,7,12,0,PI);
-      arc(xcor+9, ycor+7,7,12,0,PI);
+      arc(xcor-3, ycor+8,7,10,0,PI);
+      arc(xcor+3, ycor+8,7,10,0,PI);
     }
+    arc(xcor+9, ycor+8,7,10,0,PI);
     
-    
-    fill(255);
-    ellipse(xcor - 5, ycor - 4, 6,8);
-    ellipse(xcor + 5, ycor - 4, 6,8);
-    fill(0,0,255);
     noStroke();
+    fill(whites);
+    ellipse(xcor - 5, ycor - 3, 6,8);
+    ellipse(xcor + 5, ycor - 3, 6,8);
+    stroke(1);
     
-    if (direction == 0) {
-      ellipse(xcor + 6, ycor - 3, 4, 4);
-      ellipse(xcor - 3, ycor - 3, 4, 4);
-    }
-    
-    if (direction == 1) {
-      ellipse(xcor + 5, ycor - 2, 4,4);
-      ellipse(xcor - 5, ycor - 2, 4,4);
-    }
-    
-    if (direction == 2) {
-      ellipse(xcor - 6, ycor - 3, 4, 4);
-      ellipse(xcor + 3, ycor - 3, 4, 4);
-    }
-    if (direction == 3) {
-      ellipse(xcor + 5, ycor - 6, 4,4);
-      ellipse(xcor - 5, ycor - 6, 4,4);
-    }
-    
-    strokeWeight(1);
-    
-    
-  }
-  
-  public void drawScaredSprite() {
-    fill(0,0,255);
-    println();
-    rect(xcor-12.5,ycor-1,25,8);
-    arc(xcor, ycor, 25, 25, PI, 2 * PI);
-    
-    if (animation < 5) {
-      arc(xcor-8, ycor+7,7,12,0,PI);
-      arc(xcor, ycor+7,7,12,0,PI);
-      arc(xcor+8, ycor+7,7,12,0,PI);
-    } else {
-      arc(xcor-9, ycor+7,7,12,0,PI);
-      arc(xcor-3, ycor+7,7,12,0,PI);
-      arc(xcor+3, ycor+7,7,12,0,PI);
-      arc(xcor+9, ycor+7,7,12,0,PI);
-    }
-    
-    fill(255);
+    fill(eyes);
     noStroke();
-    rect(xcor - 5.25, ycor - 4, 3, 3);
-    rect(xcor + 3.25, ycor - 4, 3, 3);
-    stroke(255);
+    ellipse(xcor + 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);
+    ellipse(xcor - 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);    
+    
+    stroke(mouth);
     strokeWeight(1.5);
-    line(xcor - 9, ycor + 6, xcor - 6, ycor + 3);
-    line(xcor - 6, ycor + 3, xcor - 3, ycor + 6); 
-    line(xcor - 3, ycor + 6, xcor, ycor + 3);
-    line(xcor, ycor + 3, xcor + 3, ycor + 6);
-    line(xcor + 3, ycor + 6, xcor + 6, ycor + 3);
-    line(xcor + 6, ycor + 4, xcor + 9, ycor + 6);
+    line(xcor - 9, ycor + 6, xcor - 6, ycor + 2);
+    line(xcor - 6, ycor + 3, xcor - 3, ycor + 5); 
+    line(xcor - 3, ycor + 6, xcor - 0, ycor + 2);
+    line(xcor + 0, ycor + 3, xcor + 3, ycor + 5);
+    line(xcor + 3, ycor + 6, xcor + 6, ycor + 2);
+    line(xcor + 6, ycor + 3, xcor + 9, ycor + 5);
     strokeWeight(1);
     stroke(0);
   }
+
   void keyPressed() {
     if (key == 'd') {
       setDirection(0);
@@ -115,6 +86,8 @@ public class Ghost {
       setDirection(2);
     } else if (key == 'w') {
       setDirection(3);
+    } else if (key == ' ') {
+      scared = !scared;
     }
   }
   
