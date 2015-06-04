@@ -66,8 +66,8 @@ public class Ghost {
     
     fill(eyes);
     noStroke();
-    ellipse(xcor + 4, ycor - 3, 4, 4);
-    ellipse(xcor - 4, ycor - 3, 4, 4);   
+    ellipse(xcor + 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);
+    ellipse(xcor - 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);   
     
     stroke(mouth);
     strokeWeight(1.25);
