@@ -22,6 +22,10 @@ public class Ghost {
     direction = i;
   }
   
+  public void setScared(boolean boo) {
+    scared = boo;
+  }
+  
   public void nextStep() {
     xcor += delta[direction][0] * 5;
     ycor += delta[direction][1] * 5;
@@ -62,11 +66,11 @@ public class Ghost {
     
     fill(eyes);
     noStroke();
-    ellipse(xcor + 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);
-    ellipse(xcor - 5 + 2 * delta[direction][0], ycor - 3 + 2 * delta[direction][1], 4, 4);    
+    ellipse(xcor + 4, ycor - 3, 4, 4);
+    ellipse(xcor - 4, ycor - 3, 4, 4);   
     
     stroke(mouth);
-    strokeWeight(1.5);
+    strokeWeight(1.25);
     line(xcor - 9, ycor + 6, xcor - 6, ycor + 2);
     line(xcor - 6, ycor + 3, xcor - 3, ycor + 5); 
     line(xcor - 3, ycor + 6, xcor - 0, ycor + 2);

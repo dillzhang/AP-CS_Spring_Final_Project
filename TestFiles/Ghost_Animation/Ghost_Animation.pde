@@ -7,6 +7,7 @@ void setup() {
 
   color red = color(255, 0, 0);
   g = new Ghost(red);
+  g.setScared(true);
 }
 
 void draw() {
