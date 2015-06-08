@@ -20,6 +20,7 @@ void setup() {
 
 void draw() {
   background(0);
+  start.draw();
   pac.draw();
   r.drawSprite();
   r.nextStep();
@@ -29,6 +30,11 @@ void draw() {
   c.nextStep();
   p.drawSprite();
   p.nextStep();
-  start.draw();
   if (start.getPrevX() < (pac.getX() + 20)) start.addPrevCount();
+  if (pac.getX() > 560) pac.setX(0);
+  if (r.getX() > 560) r.setX(0);
+  if (o.getX() > 560) o.setX(0);
+  if (c.getX() > 560) c.setX(0);
+  if (p.getX() > 560) p.setX(0);
+  
 }

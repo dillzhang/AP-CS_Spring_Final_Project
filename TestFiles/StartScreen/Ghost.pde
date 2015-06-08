@@ -24,6 +24,14 @@ public class Ghost {
     skin = s;
   }
   
+  public void setX(int xcor) {
+    this.xcor = xcor;
+  }
+  
+  public int getX() {
+    return this.xcor;
+  }
+  
   public void setDirection(int i) {
     direction = i;
   }
