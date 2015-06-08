@@ -34,18 +34,18 @@ public class PacMan {
   
   void keyPressed() {
     if (key == 'd') {
-      p.setDirection(0);
+      this.setDirection(0);
     } else if (key == 's') {
-      p.setDirection(1);
+      this.setDirection(1);
     } else if (key == 'a') {
-      p.setDirection(2);
+      this.setDirection(2);
     } else if (key == 'w') {
-      p.setDirection(3);
+      this.setDirection(3);
     }
   }
   
   void draw() {
-    p.drawSprite();
-    p.nextStep();
+    this.drawSprite();
+    this.nextStep();
   }
 }
