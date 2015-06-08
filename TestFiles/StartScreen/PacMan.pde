@@ -15,6 +15,10 @@ public class PacMan {
     this.y = y;
   }
   
+  public int getX(){
+    return this.x;
+  }
+
   public void setDirection(int i) {
     direction = i;
   }

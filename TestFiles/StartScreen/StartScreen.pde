@@ -1,5 +1,6 @@
 Ghost r, o, c, p;
 PacMan pac;
+Start start;
 
 void setup() {
   size(560,720);
@@ -13,6 +14,7 @@ void setup() {
   c = new Ghost(cyan, 160, 360);
   p = new Ghost(pink, 190, 360);
   pac = new PacMan(245, 360);
+  start = new Start();
   frameRate(20);
 }
 
@@ -27,4 +29,6 @@ void draw() {
   c.nextStep();
   p.drawSprite();
   p.nextStep();
+  start.draw();
+  if (start.getPrevX() < (pac.getX() + 20)) start.addPrevCount();
 }
