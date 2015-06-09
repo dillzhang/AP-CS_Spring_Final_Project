@@ -31,10 +31,11 @@ void draw() {
   p.drawSprite();
   p.nextStep();
   if (start.getPrevX() < (pac.getX() + 20)) start.addPrevCount();
-  if (pac.getX() > 560) pac.setX(0);
-  if (r.getX() > 560) r.setX(0);
-  if (o.getX() > 560) o.setX(0);
-  if (c.getX() > 560) c.setX(0);
-  if (p.getX() > 560) p.setX(0);
+  if (pac.getX() == 0) start.setPrevCount(-13);
+  if (pac.getX() > 560) pac.setX(-160);
+  if (r.getX() > 560) r.setX(-160);
+  if (o.getX() > 560) o.setX(-160);
+  if (c.getX() > 560) c.setX(-160);
+  if (p.getX() > 560) p.setX(-160);
   
 }

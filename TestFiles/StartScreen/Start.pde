@@ -4,6 +4,7 @@ public class Start {
   
   void draw() {
     DrawDots();
+    WriteText();
   }
   
   public Start() {
@@ -14,7 +15,10 @@ public class Start {
   
   public void addPrevCount() {
     prevCount++;
-    if (prevCount > 16) prevCount = -13;
+  }
+  
+  public void setPrevCount(int num) {
+    prevCount = num;
   }
   
   public int getPrevX(){
@@ -22,14 +26,18 @@ public class Start {
   }
   
   public void WriteText() {
-    fill(0);
+    fill(255);
+    textAlign(CENTER,TOP);
+    textSize(125);
+    text("Pac-Man",280,10);
+    textSize(20);
+    text("Click Anywhere to Start", 280, 600);
   }
   
   void DrawDots(){
     noStroke();
     fill(255,218,185);
     while (count < 15) {
-      println(count);
       ellipse(260 + count * 20, 360, 6, 6);
       count ++;
     }
