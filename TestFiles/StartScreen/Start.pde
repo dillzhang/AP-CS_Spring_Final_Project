@@ -1,6 +1,5 @@
 public class Start {
-  int dots, prevCount, count;
-  private PImage dot = loadImage("dot.jpg");
+  int prevCount, count;
   private Ghost r, o, c, p;
   private PacMan pac;
   
@@ -14,8 +13,8 @@ public class Start {
     c.nextStep();
     p.drawSprite();
     p.nextStep();
-    if (start.getPX() < (pac.getX() + 20)) start.addPC();
-    if (pac.getX() == 0) start.setPC(-13);
+    if (this.getPX() < (pac.getX() + 20)) this.addPC();
+    if (pac.getX() == 0) this.setPC(-13);
     if (pac.getX() > 560) pac.setX(-160);
     if (r.getX() > 560) r.setX(-160);
     if (o.getX() > 560) o.setX(-160);
@@ -28,7 +27,6 @@ public class Start {
   public Start() {
     prevCount = 1;
     count = 1;
-    dots = 100;
     color red = color(255,39,40);
     color orange = color(243,176,67);
     color cyan = color(94,219,192);
@@ -69,7 +67,6 @@ public class Start {
       ellipse(260 + count * 20, 360, 6, 6);
       count ++;
     }
-    print(count);
     count = prevCount;
   }
 }
