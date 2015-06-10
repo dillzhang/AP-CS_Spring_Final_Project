@@ -68,9 +68,9 @@ public class Board {
      d0, dot, powerDot, null, null  //10
   };
 
-// METHODS ===============================================================================================================================================================================================
+// CONSTRUCTOR ===========================================================================================================================================================================================
 
-  //CONSTRUCTOR
+  //Board()
   //Constructs a board with a given filename or path
   //  File must be formatted as follows
   //    -Line 1: int h, Height of the Board
@@ -95,15 +95,22 @@ public class Board {
     }
   }  
 
+// METHODS ===============================================================================================================================================================================================
+
+  //returnNeighbors()
   //Returns a list of nieghbors for a given coordinate on the board
   public int[][][] returnNeighbors(int x, int y) {
     return null;
   }
 
-  public void nextStep() {
-    animation = (animation + 1) % animationrate;
+// DRAW() ================================================================================================================================================================================================
+  
+  void draw() {
+    nextStep();
+    drawBoard();
   }
-
+  
+  //drawBoard()
   //Draw the board by parsing int[][] and drawing the piece associated with that value
   public void drawBoard() {
     for (int i = 0; i < board.length; i++) {
@@ -117,11 +124,16 @@ public class Board {
     }
   }
   
-  void draw() {
-    System.out.println(animation);
-    nextStep();
-    System.out.println(animation);
-    drawBoard();
+  //nextStep()
+  public void nextStep() {
+    animation = (animation + 1) % animationrate;
   }
+
+// KEYPRESSED() ==========================================================================================================================================================================================
+  
+  void keyPressed() {
+    
+  } 
+  
 }
 

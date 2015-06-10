@@ -1,21 +1,21 @@
-Board b;
-PacMan p;
+Board board;
+PacMan pacman;
 
 void setup() {
   size(560,720);
   background(0);
   frameRate(15);
   
-  b = new Board("board.dat");
-  p = new PacMan();
+  board = new Board("board.dat");
+  pacman = new PacMan();
 }
 
 void draw() {
   background(0);
-  b.draw();
-  p.draw();
+  board.draw();
+  pacman.draw();
 }
 
 void keyPressed() {
-  p.keyPressed();
+  pacman.keyPressed();
 }
