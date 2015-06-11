@@ -50,32 +50,37 @@ public class PacMan {
   }
   
   public void nextStep() {
+
+    System.out.println("Direct: " + direction + " Next: " + nextDirection);    
     
     //X Coordinate
-    xpos += delta[direction][0];
-    if (xpos %  4 == 0) {
-      xbor += (xpos - 2) / 2;
-      xpos = 4 - xpos;  
+    if (!board.isWall(ybor, xbor + delta[direction][0]) || xpos != 2) {
+      xpos += delta[direction][0];
+      if (xpos %  4 == 0) {
+        xbor += (xpos - 2) / 2;
+        xpos = 4 - xpos;  
+      }
     }
     
     //Y Coordinate
-    ypos += delta[direction][1];
-    if (ypos % 4 == 0) {
-      ybor += (ypos - 2) / 2;
-      ypos = 4 - ypos;
+    if (!board.isWall(ybor + delta[direction][1], xbor) || ypos != 2) {
+      ypos += delta[direction][1];
+      if (ypos % 4 == 0) {
+        ybor += (ypos - 2) / 2;
+        ypos = 4 - ypos;
+      }
     }
     
     //Animation
     animation = (animation + 1) % animationrate;
     
     //Direction
-    System.out.println("direction: " + direction + " next: " + nextDirection a);
     if (direction != nextDirection) {
-      if ((direction + nextDirection) % 2 == 0) {
+      if ((direction + nextDirection) % 2 == 0 ) {
         direction = nextDirection;
-      } else if ( nextDirection%2==1 && xpos==2 ) {
+      } else if ( nextDirection%2==1 && xpos==2 && !board.isWall(ybor + delta[nextDirection][1], xbor) ) {
         direction = nextDirection;
-      } else if ( nextDirection%2==0 && ypos==2 ) {
+      } else if ( nextDirection%2==0 && ypos==2 && !board.isWall(ybor, xbor + delta[nextDirection][0]) ) {
         direction = nextDirection;
       }
     }

@@ -102,6 +102,12 @@ public class Board {
   public int[][][] returnNeighbors(int x, int y) {
     return null;
   }
+  
+  //isWall()
+  //Returns if location is an inaccessible location
+  public boolean isWall(int x, int y) {
+    return board[x][y] < 50;
+  }
 
 // DRAW() ================================================================================================================================================================================================
   

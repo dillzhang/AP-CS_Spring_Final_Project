@@ -41,4 +41,4 @@ Changelog
 | 2015-06-03 | SWL          | Made basic Scared Ghosts |
 | 2015-06-04 | DZ           | Modified Scared Ghosts |
 | 2015-06-08 | SWL          | Began working on StartScreen | 
-
+| 2015-06-10 | DZ           | Aligned Pacman to the Board, Cleaned Code |
