@@ -52,23 +52,39 @@ public class PacMan {
   
   public void nextStep() {
 
-    System.out.println("Direct: " + direction + " Next: " + nextDirection + " xbor: " + xbor + " ybor: " + ybor);    
+    //Debugging Stuff
+    //System.out.println("Direction: " + direction + " Next: " + nextDirection);    
+    //System.out.println("xbor: " + xbor + " ybor: " + ybor + " xpos: " + xpos + " ypos: " + ypos);
+    
+    if (ybor == 14 && xpos <= 0 && xbor <= 1) {
+        
+    }
+    
+    if (ybor == 14 && xpos >= 4 && xbor >= 26) {
+        
+    }
     
     //X Coordinate
-    if (!board.isWall(ybor, xbor + delta[direction][0]) || xpos != 2) {
+    if ( !(board.isWall(ybor, xbor + delta[direction][0]) && xpos == 2) ) {
       xpos += delta[direction][0];
-      if (xpos %  4 == 0) {
-        xbor += (xpos - 2) / 2;
-        xpos = 4 - xpos;  
+      if (xpos >= 4) {
+        xbor += 1;
+        xpos = 0;
+      } else if (xpos <= 0) {
+        xbor -= 1;
+        xpos = 4;  
       }
     }
     
     //Y Coordinate
-    if (!board.isWall(ybor + delta[direction][1], xbor) || ypos != 2) {
+    if ( !(board.isWall(ybor + delta[direction][1], xbor) && ypos == 2) ) {
       ypos += delta[direction][1];
-      if (ypos % 4 == 0) {
-        ybor += (ypos - 2) / 2;
-        ypos = 4 - ypos;
+      if (ypos >= 4) {
+        ybor += 1;
+        ypos = 0;
+      } else if (ypos <= 0) {
+        ybor -= 1;
+        ypos = 4;  
       }
     }
     

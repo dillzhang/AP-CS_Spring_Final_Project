@@ -106,6 +106,7 @@ public class Board {
   //isWall()
   //Returns if location is an inaccessible location
   public boolean isWall(int x, int y) {
+    //println("x: " + x + " y: " + y + " return: " + (board[x][y] < 50));
     return board[x][y] < 50;
   }
 

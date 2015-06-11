@@ -42,3 +42,4 @@ Changelog
 | 2015-06-04 | DZ           | Modified Scared Ghosts |
 | 2015-06-08 | SWL          | Began working on StartScreen | 
 | 2015-06-10 | DZ           | Aligned Pacman to the Board, Cleaned Code |
+| 2015-06-11 | DZ           | Fixed board clipping, Processing is too slow to keep track of changes |
