@@ -15,6 +15,7 @@ public class PacMan {
   private int nextDirection = 0; //For turning
   private float[] directionValues = {0, PI / 2, PI, PI + PI/2};
   private int[][] delta = { {1,0}, {0,1}, {-1,0}, {0,-1} };
+  private boolean controllable;
   
   //LOCATION
   private int xbor, ybor, xpos, ypos;
@@ -51,7 +52,7 @@ public class PacMan {
   
   public void nextStep() {
 
-    System.out.println("Direct: " + direction + " Next: " + nextDirection);    
+    System.out.println("Direct: " + direction + " Next: " + nextDirection + " xbor: " + xbor + " ybor: " + ybor);    
     
     //X Coordinate
     if (!board.isWall(ybor, xbor + delta[direction][0]) || xpos != 2) {
@@ -84,20 +85,28 @@ public class PacMan {
         direction = nextDirection;
       }
     }
+    
+    controllable = true;
       
   }
 
 // KEYPRESSED() ==========================================================================================================================================================================================
   
   void keyPressed() {
-    if (key == 'd') {
-      setDirection(0);
-    } else if (key == 's') {
-      setDirection(1);
-    } else if (key == 'a') {
-      setDirection(2);
-    } else if (key == 'w') {
-      setDirection(3);
+    if (controllable) {
+      if (key == 'd') {
+        setDirection(0);
+        controllable = false;
+      } else if (key == 's') {
+        setDirection(1);
+        controllable = false;
+      } else if (key == 'a') {
+        setDirection(2);
+        controllable = false;
+      } else if (key == 'w') {
+        setDirection(3);
+        controllable = false;
+      }
     }
   }
   
