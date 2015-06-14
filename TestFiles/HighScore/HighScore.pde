@@ -8,6 +8,7 @@ private int[][] colors = new int[][] {
 private int score = 10000;
 private boolean scoreSubmit = true;
 private int[] letters = new int[] {65,65,65};
+
 void setup() {
   size(560,720);
   background(0);
