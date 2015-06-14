@@ -1,9 +1,7 @@
 public class HighScore {
   private int[] scores = new int[10];
   private String[] names = new String[10];
-  private String[] ranks = new String[] {
-    "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"
-  };
+  private String[] ranks = new String[] { "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"};
   private int[][] colors = new int[][] { {255,255,255}, {127,0,255}, {255,0,255}, {255,0,127}, {255,0,0}, {255,127,0}, {255,255,0}, {127,255,0}, {0,255,127}, {0,255,255}, {0,0,255}};
   private int score = 10000;
   private boolean scoreSubmit = true;
@@ -13,7 +11,8 @@ public class HighScore {
   public HighScore(int num) {
     score = num;
     readScore();
-    resetName();
+    if (addIndex() == -1) displayScores();
+    else resetName();
   }
   
   public boolean resetName() {
@@ -144,7 +143,7 @@ public class HighScore {
   }
 
 
-  int addScore() {
+  int addIndex() {
     int addIndex = -1;
     for (int i = 0; i < 10; i++) {
       if (scores[i] < score) {
@@ -209,7 +208,7 @@ public class HighScore {
   void mouseClicked() {
     if (!scoreSubmit) {
       if (mouseX > 230 && mouseX < 330 && mouseY > 575 && mouseY < 625) {
-        addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addScore());
+        addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addIndex());
         displayScores();
       } else {
         changeCount(mouseX, mouseY);
@@ -236,11 +235,11 @@ public class HighScore {
         if (keyLocation < 2) keyLocation++;
       }
       else if (keyCode == ENTER) {
-        addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addScore());
+        addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addIndex());
         displayScores();
       }
       else if (keyCode == RETURN) {
-        addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addScore());
+        addScore("" + (char) letters[0] + (char) letters[1] + (char) letters[2], addIndex());
         displayScores();
       }
       fixCount();

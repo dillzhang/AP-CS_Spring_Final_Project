@@ -2,7 +2,7 @@ HighScore high;
 
 void setup() {
   size(560,720);
-  high = new HighScore(20000);
+  high = new HighScore(30000);
 }
 
 void draw() {
