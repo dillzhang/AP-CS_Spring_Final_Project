@@ -109,6 +109,14 @@ public class Board {
     //println("x: " + x + " y: " + y + " return: " + (board[x][y] < 50));
     return board[x][y] < 50;
   }
+  
+  public int value(int x, int y) {
+    return board[x][y];
+  }
+  
+  public void setvalue (int x, int y, int v) {
+    board[x][y] = v;
+  }
 
 // DRAW() ================================================================================================================================================================================================
   

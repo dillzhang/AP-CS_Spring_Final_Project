@@ -32,7 +32,7 @@ public class Ghost {
   private boolean controllable;
 
   //LOCATION
-  private int xbor, ybor, xpos, ypos;
+  private int xbor, ybor, xpos, ypos, defx, defy;
 
   //INFO
   private color skin;
@@ -41,13 +41,19 @@ public class Ghost {
   // CONSTRUCTOR ===========================================================================================================================================================================================
 
   public Ghost(color s, int x, int y) {
-    xbor = x;
-    xpos = 4;
-    ybor = y;
-    ypos = 2;
+    defx = x;
+    defy = y;
     skin = s;
+    reset();
   }
-
+  
+  public void reset() {
+    xbor = defx;
+    xpos = 4;
+    ybor = defy;
+    ypos = 2;
+  }
+  
   // METHODS ===============================================================================================================================================================================================
 
   public int getX() {
@@ -60,6 +66,14 @@ public class Ghost {
   
   public void setX(int x) {
     xbor = x;
+  }
+  
+  public void scared() {
+    scared = !scared;
+  }
+  
+  public boolean getScared() {
+    return scared;
   }
 
   // DRAW() ================================================================================================================================================================================================
