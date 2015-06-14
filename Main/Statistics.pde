@@ -3,10 +3,11 @@ public class Statistics {
   // INSTANCE VARIABLES ====================================================================================================================================================================================
   
   //TIMING
-  private boolean startscreen = false; //true;
-  private boolean gameplay = true; //false;
+  private boolean startscreen = true;
+  private boolean gameplay = false;
+  private boolean death = false;
   private boolean reset = false;
-  private boolean highscore = true;
+  private boolean highscore = false;
   
   //SCORING
   private int lives = 3;
@@ -42,9 +43,21 @@ public class Statistics {
  // DRAW() ================================================================================================================================================================================================
   
   void draw() {
+    println("s: " + startscreen);
+    println("r: " + reset);
+    println("g: " + gameplay);
     if (startscreen) {
       start.draw();
-    } else if (!reset && gameplay) {
+    } else if (death) {
+      fill(255);
+      textAlign(CENTER,TOP);
+      textSize(125);
+      text("You Died",280,10);
+      textSize(20);
+      text("Press Any Key to Continue", 280, 600);
+    } else if (reset) {
+      reset();
+    } if (!reset && gameplay) {
       nextStep();
       drawStats();
       b.draw();
@@ -56,6 +69,15 @@ public class Statistics {
     } else if (highscore) {
       high.draw();
     }
+  }
+  
+  public void reset() {
+    for (Ghost g: Spooky) {
+      g.reset();
+    }
+    p = new PacMan();
+    reset = false;
+    gameplay = true;
   }
   
   public void drawStats() {
@@ -83,6 +105,7 @@ public class Statistics {
         println("Death");
         if (!g.getScared()) { 
           lives -= 1;
+          death = true;
           reset = true;
         } else {
           g.reset();
@@ -104,8 +127,9 @@ public class Statistics {
     if (startscreen) {
       startscreen = false;
       reset = true;
-    } else 
-    if (!reset && gameplay) {
+    } else if (death) {
+      death = false;
+    } else if (!reset && gameplay) {
       p.keyPressed();
     } else if (highscore) {
       high.keyPressed();
