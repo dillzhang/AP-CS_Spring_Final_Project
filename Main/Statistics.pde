@@ -20,6 +20,7 @@ public class Statistics {
   private Board b;
   private Ghost blinky, pinky, inky, clyde;
   private Ghost[] Spooky;
+  private ArrayList<Ghost> inhouse;
   private HighScore high;
   
   // CONSTRUCTOR ===========================================================================================================================================================================================  
@@ -38,6 +39,10 @@ public class Statistics {
     Spooky[1] = pinky;
     Spooky[2] = inky;
     Spooky[3] = clyde;
+    inhouse = new ArrayList<Ghost>();
+    inhouse.add(pinky);
+    inhouse.add(inky);
+    inhouse.add(clyde);
   }
   
  // DRAW() ================================================================================================================================================================================================
