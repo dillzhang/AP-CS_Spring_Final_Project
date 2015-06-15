@@ -55,7 +55,7 @@ public class Statistics {
       text("Press Any Key to Continue", 280, 600);
     } else if (reset) {
       reset();
-    } if (!reset && gameplay) {
+    } else if (!reset && gameplay) {
       nextStep();
       drawStats();
       b.draw();
@@ -139,16 +139,6 @@ public class Statistics {
           g.timereset();
           g.reset();
         }
-      }
-    }
-    
-    if (b.count() <= 0) {
-      level += 1;
-      b = new Board("board.dat");
-      p = new PacMan();
-      for (Ghost g:Spooky) {
-        g.reset();
-        g.timereset();
       }
     }
     

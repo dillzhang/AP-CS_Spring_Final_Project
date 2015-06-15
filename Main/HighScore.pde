@@ -1,37 +1,22 @@
 public class HighScore {
   private int[] scores = new int[10];
+  public int score;
   private String[] names = new String[10];
   private String[] ranks = new String[] { "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"};
   private int[][] colors = new int[][] { {255,255,255}, {127,0,255}, {255,0,255}, {255,0,127}, {255,0,0}, {255,127,0}, {255,255,0}, {127,255,0}, {0,255,127}, {0,255,255}, {0,0,255}};
-  private int score = 10000;
-  private boolean scoreSubmit = true;
+  private boolean scoreSubmitted;
   private int[] letters = new int[] { 65, 65, 65 };
   private int keyLocation = 0;
   
   public HighScore(int num) {
     score = num;
     readScore();
-    if (addIndex() == -1) displayScores();
-    else resetName();
-  }
-  
-  public boolean resetName() {
-    background(0);
-    fill(255);
-    textAlign(CENTER, TOP);
-    textSize(75);
-    text("Enter Your\nName", 280, 5);
-    scoreSubmit = false;
-    // 32 = space, 48 = 0, 57 = 9,65 = A, 90 = Z, 97 = a, 112 = z
+    println("ADDINDEX" + addIndex());
+    scoreSubmitted = false;
     for (int i = 0; i < letters.length; i++) {
       letters[i] = 65;
     }
-    noStroke();
-    textAlign(CENTER, CENTER);
-    fill(255);
-    textSize(25);
-    text("Press Enter to Submit", 280, 600);
-    return true;
+    if (addIndex() == -1) displayScores();
   }
 
   void fixCount() {
@@ -48,6 +33,18 @@ public class HighScore {
     }
   }
   void displayName() {
+    background(0);
+    fill(255);
+    textAlign(CENTER, TOP);
+    textSize(75);
+    text("Enter Your\nName", 280, 5);
+    scoreSubmitted = false;
+    noStroke();
+    textAlign(CENTER, CENTER);
+    fill(255);
+    textSize(25);
+    text("Press Enter to Submit", 280, 600);
+    
     fill(0, 0, 255);
     noStroke();
     //top triangles
@@ -60,8 +57,6 @@ public class HighScore {
     triangle(224, 450, 336, 450, 280, 500);
     triangle(392, 450, 504, 450, 448, 500);
 
-    fill(0);
-    rect(0, 250, 560, 200);
     fill(255);
     textSize(170);
     textAlign(CENTER, TOP);
@@ -111,7 +106,7 @@ public class HighScore {
   }
 
 
-  int addIndex() {
+  public int addIndex() {
     int addIndex = -1;
     for (int i = 0; i < 10; i++) {
       if (scores[i] < score) {
@@ -122,8 +117,7 @@ public class HighScore {
     return addIndex;
   }
 
-
-  boolean addScore(String name, int addIndex) {
+  public boolean addScore(String name, int addIndex) {
     if (addIndex == -1) return false;
     for (int i = 9; i > addIndex; i--) {
       scores[i] = scores[i - 1];
@@ -138,12 +132,12 @@ public class HighScore {
     }
 
     writer.close();
-    scoreSubmit = true;
+    scoreSubmitted = true;
     return true;
   }
 
-  void displayScores() {
-    scoreSubmit = true;
+  public void displayScores() {
+    scoreSubmitted = true;
     BufferedReader reader = createReader("scores.dat");
     String s = "";
     background(0);
@@ -174,7 +168,7 @@ public class HighScore {
   }
   
   void keyPressed() {
-    if (!scoreSubmit) {
+    if (!scoreSubmitted) {
       if (key == 'w') {
         letters[keyLocation]++;
         hiTri(keyLocation + 1, 0);
@@ -203,10 +197,12 @@ public class HighScore {
   }
 
   void draw() {
-    if (!scoreSubmit) {
+    if (scoreSubmitted == false) {
       displayName();
       hiTri(keyLocation + 1, 1);
       hiTri(keyLocation + 4, 1);
+    } else {
+      displayScores();
     }
   }
 }
