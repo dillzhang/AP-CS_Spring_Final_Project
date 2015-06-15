@@ -74,6 +74,7 @@ public class Statistics {
       g.reset();
     }
     p = new PacMan();
+    b = new Board("board.dat");
     reset = false;
     gameplay = true;
   }
@@ -142,7 +143,7 @@ public class Statistics {
       }
     }
     
-    if (b.count() <= 0 {
+    if (b.count() <= 0) {
       level += 1;
       reset = true;
     }
