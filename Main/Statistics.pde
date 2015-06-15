@@ -142,6 +142,16 @@ public class Statistics {
       }
     }
     
+    if (b.count() <= 0) {
+      level += 1;
+      b = new Board("board.dat");
+      p = new PacMan();
+      for (Ghost g:Spooky) {
+        g.reset();
+        g.timereset();
+      }
+    }
+    
     if (lives == 0) {
       gameplay = false;
       high = new HighScore(score);
