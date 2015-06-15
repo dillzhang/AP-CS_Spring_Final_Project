@@ -164,7 +164,7 @@ public class HighScore {
     noStroke();
     fill(255);
     textSize(20);
-    text("Press Any Key to Go Back to Home Screen", 280, 625);
+    text("Quit and Re-Run the Code to Play Again", 280, 625);
   }
   
   void keyPressed() {
