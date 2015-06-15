@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Ghost {
 
   // INSTANCE VARIABLES ====================================================================================================================================================================================
@@ -10,7 +12,7 @@ public class Ghost {
 
   //MOTION
   //int to determine direction of travel and changes in xcor and ycor
-  private int direction = 0; //0-Right, 1-Down, 2-Left, 3-Up
+  private int direction = 2; //0-Right, 1-Down, 2-Left, 3-Up
   private int nextDirection = 0; //For turning
   private float[] directionValues = {
     0, PI / 2, PI, PI + PI/2
@@ -29,7 +31,10 @@ public class Ghost {
       0, -1
     }
   };
-  private ArrayList<int[]> movements;
+  private Random rand = new Random();
+  private int time;
+  private int wait;
+  private boolean exiting = true;
 
   //LOCATION
   private int xbor, ybor, xpos, ypos, defx, defy;
@@ -40,21 +45,28 @@ public class Ghost {
 
   // CONSTRUCTOR ===========================================================================================================================================================================================
 
-  public Ghost(color s, int x, int y, ArrayList<int[]> move) {
+  public Ghost(color s, int x, int y, int delay) {
     defx = x;
     defy = y;
     skin = s;
-    reset(move);
+    time = millis();
+    wait = delay;
+    reset();
   }
   
-  public void reset(ArrayList<int[]> move) {
+  public void reset() {
     xbor = defx;
     xpos = 4;
     ybor = defy;
     ypos = 2;
-    movements = move;
+    notscared();
   }
   
+  public void timereset() {
+    time = millis();
+    exiting = true;
+    wait = 5000;
+  }
   // METHODS ===============================================================================================================================================================================================
 
   public int getX() {
@@ -70,7 +82,11 @@ public class Ghost {
   }
   
   public void scared() {
-    scared = !scared;
+    scared = true;
+  }
+  
+  public void notscared() {
+    scared = false;
   }
   
   public boolean getScared() {
@@ -82,6 +98,16 @@ public class Ghost {
   void draw() {
     nextStep();
     drawSprite();
+    exiter();
+  }
+
+  public void exiter() {
+    if (millis() - time > wait && exiting) {
+      reset();
+      xbor = 13;
+      ybor = 11;
+      exiting = false;
+    }
   }
 
   public void drawSprite() {
@@ -139,6 +165,42 @@ public class Ghost {
   }
 
   public void nextStep() {
+    if ( !(board.isWall(ybor, xbor + delta[direction][0]) && xpos == 2) ) {
+      xpos += delta[direction][0];
+      if (xpos >= 4) {
+        xbor += 1;
+        xpos = 0;
+      } else if (xpos <= 0) {
+        xbor -= 1;
+        xpos = 4;
+      }
+    } else {
+      nextDirection = rand.nextInt(4);
+    }
+
+    //Y Coordinate
+    if ( !(board.isWall(ybor + delta[direction][1], xbor) && ypos == 2) ) {
+      ypos += delta[direction][1];
+      if (ypos >= 4) {
+        ybor += 1;
+        ypos = 0;
+      } else if (ypos <= 0) {
+        ybor -= 1;
+        ypos = 4;
+      }
+    } else {
+      nextDirection = rand.nextInt(4);
+    }
+        //Direction
+    if (direction != nextDirection) {
+      if ((direction + nextDirection) % 2 == 0 ) {
+        direction = nextDirection;
+      } else if ( nextDirection%2==1 && xpos==2 && !board.isWall(ybor + delta[nextDirection][1], xbor) ) {
+        direction = nextDirection;
+      } else if ( nextDirection%2==0 && ypos==2 && !board.isWall(ybor, xbor + delta[nextDirection][0]) ) {
+        direction = nextDirection;
+      }
+    }
   }
 }
 

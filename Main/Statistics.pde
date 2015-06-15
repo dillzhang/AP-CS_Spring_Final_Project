@@ -21,6 +21,7 @@ public class Statistics {
   private Ghost blinky, pinky, inky, clyde;
   private Ghost[] Spooky;
   private HighScore high;
+  private int scaredtime = millis();
   
   // CONSTRUCTOR ===========================================================================================================================================================================================  
 
@@ -29,14 +30,10 @@ public class Statistics {
     start = new Start();
     p = new PacMan();
     b = bor;
-    AStar alpha = new AStar(p.getX(),p.getY(), 13, 11,b.boarddata());
-    blinky = new Ghost(color(255,39,40),13,11, alpha.aStar());
-    alpha = new AStar(p.getX(), p.getY(), 11, 14,b.boarddata());
-    pinky = new Ghost(color(243,176,67),11,14, alpha.aStar());
-    alpha = new AStar(p.getX(), p.getY(), 13, 14,b.boarddata());
-    inky = new Ghost(color(94,219,192),13,14, alpha.aStar());
-    alpha = new AStar(p.getX(), p.getY(), 15, 14,b.boarddata());
-    clyde = new Ghost(color(240,178,202),15,14, alpha.aStar());
+    blinky = new Ghost(color(255,39,40),13,11,0);
+    pinky = new Ghost(color(243,176,67),11,14,5000);
+    inky = new Ghost(color(94,219,192),13,14,10000);
+    clyde = new Ghost(color(240,178,202),15,14,15000);
     Spooky = new Ghost[4];
     Spooky[0] = blinky;
     Spooky[1] = pinky;
@@ -47,9 +44,6 @@ public class Statistics {
  // DRAW() ================================================================================================================================================================================================
   
   void draw() {
-    println("s: " + startscreen);
-    println("r: " + reset);
-    println("g: " + gameplay);
     if (startscreen) {
       start.draw();
     } else if (death) {
@@ -89,6 +83,7 @@ public class Statistics {
   }
   
   public void nextStep() {
+    
     println("x: " + p.getX() + " y: " + p.getY());
     if (b.value(p.getY(),p.getX()) == 52) {
       b.setvalue(p.getY(), p.getX(), 50);
@@ -97,6 +92,14 @@ public class Statistics {
       pinky.scared();
       inky.scared();
       clyde.scared();
+      scaredtime = millis();
+    }
+        
+    if (millis() - scaredtime > 10000) {
+      blinky.notscared();
+      pinky.notscared();
+      inky.notscared();
+      clyde.notscared();
     }
     
     if (b.value(p.getY(), p.getX()) == 51) {
@@ -114,12 +117,15 @@ public class Statistics {
         } else {
           //g.reset();
           score += 100;
+          g.timereset();
+          g.reset();
         }
       }
     }
     
     if (lives == 0) {
       gameplay = false;
+      high = new HighScore(score);
       highscore = true;
     }
     

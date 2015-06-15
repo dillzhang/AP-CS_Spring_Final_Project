@@ -96,17 +96,11 @@ public class Board {
   }  
 
 // METHODS ===============================================================================================================================================================================================
-
-  //returnNeighbors()
-  //Returns a list of nieghbors for a given coordinate on the board
-  public int[][][] returnNeighbors(int x, int y) {
-    return null;
-  }
   
   //isWall()
   //Returns if location is an inaccessible location
   public boolean isWall(int x, int y) {
-    //println("x: " + x + " y: " + y + " return: " + (board[x][y] < 50));
+    println("x: " + x + " y: " + y + " return: " + (board[x][y] < 50));
     return board[x][y] < 50;
   }
   

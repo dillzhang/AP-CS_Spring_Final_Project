@@ -11,9 +11,9 @@ void setup() {
 
 void draw() {
   background(0);
-  //stat.draw();
+  stat.draw();
 }
 
 void keyPressed() {
-  //stat.keyPressed();
+  stat.keyPressed();
 }
