@@ -115,6 +115,18 @@ public class Board {
   public int[][] boarddata() {
     return board;
   }
+  
+  public int count(){
+    int counter = 0;
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[i].length; j++) {
+        if (board[i][j] > 50) {
+          counter++;
+        }
+      }
+    }
+    return counter;
+  }
 
 // DRAW() ================================================================================================================================================================================================
   
