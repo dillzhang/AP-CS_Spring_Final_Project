@@ -7,7 +7,7 @@ public class Ghost {
   //ANIMATION
   //int to determine the instance of animation
   private int animation = 0;
-  private final int animationrate = 6;
+  private final int animationrate = 10;
   private final int animationstep  = 2;
 
   //MOTION
@@ -165,6 +165,8 @@ public class Ghost {
   }
 
   public void nextStep() {
+    animation = (animation + 1) % animationrate;
+    
     if ( !(board.isWall(ybor, xbor + delta[direction][0]) && xpos == 2) ) {
       xpos += delta[direction][0];
       if (xpos >= 4) {
