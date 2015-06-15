@@ -71,7 +71,7 @@ public class Statistics {
   
   public void reset() {
     for (Ghost g: Spooky) {
-      //g.reset();
+      g.reset();
     }
     p = new PacMan();
     reset = false;
@@ -103,7 +103,7 @@ public class Statistics {
   
   public void nextStep() {
     
-    println("x: " + p.getX() + " y: " + p.getY());
+    
     if (b.value(p.getY(),p.getX()) == 52) {
       b.setvalue(p.getY(), p.getX(), 50);
       score += 20;
@@ -142,6 +142,11 @@ public class Statistics {
       }
     }
     
+    if (b.count() <= 0 {
+      level += 1;
+      reset = true;
+    }
+    
     if (lives == 0) {
       gameplay = false;
       high = new HighScore(score);
@@ -157,6 +162,7 @@ public class Statistics {
       startscreen = false;
       reset = true;
     } else if (death) {
+      reset = true;
       death = false;
     } else if (!reset && gameplay) {
       p.keyPressed();
