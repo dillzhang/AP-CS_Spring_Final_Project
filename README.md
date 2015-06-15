@@ -10,15 +10,15 @@ Sammi Wu Leung & Dillon Zhang (Period 1)
 Project
 =======
 Creating Pacman through Processing
-- [ ] Pacman Sprite
-- [ ] Ghost Sprite
-- [ ] Board Pieces
-- [ ] Start Screen
-- [ ] High Score Screen
+- [X] Pacman Sprite
+- [X] Ghost Sprite
+- [X] Board Pieces
+- [X] Start Screen
+- [X] High Score Screen
 
 Usage
 =====
-W.I.P.
+Download the files, you only need everything in the Main directory. Open Main.pde and click run. This will bring you to a startscreen. Everything will then run on the ASWD keys. Good luck and have fun! Relive your childhood.
 
 Changelog
 =========
@@ -43,3 +43,8 @@ Changelog
 | 2015-06-08 | SWL          | Began working on StartScreen | 
 | 2015-06-10 | DZ           | Aligned Pacman to the Board, Cleaned Code |
 | 2015-06-11 | DZ           | Fixed board clipping, Processing is too slow to keep track of changes |
+| ????-??-?? | ??? / ??     | Forgetting to update the devlog... |
+
+Analysis
+========
+Although this project is not as developed as we would like, we had constantly hit bumps and obstacles that were unforseen. This included the lag created by processing. This limited our conditional statements and forced us to uses inequalities rather than equalities. Therefore we had to rethink and recreate algorithms that accounted for bidirectional movements and cardinal direction handling. Our maze algorithms did not implement as smoothly as we would have liked into Pacman. After each taking a shot at writing a proper maze algorithm (see commits) for the game, we ultimately gave up on the maze algorithm due to time constraints. Our developement process also could use improvement. With our strong original plan lacking any contingency, any issue that arised took far more time to address than nessecary. For example, we developed our sprites, start and end screens seperately from the main portion. When it came time to add it, we ran into issues where one unit of measure in one was different than the other. We lacked consistency across the board and had to rewrite and readapt files to fit into our main. After running into constant unforseen problems and having to adapt our code to account for them, our original plan was redrawn and scaled back unfortunately. However, this is still a successful project that has room for improvement!
