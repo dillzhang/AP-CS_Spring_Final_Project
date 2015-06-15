@@ -80,6 +80,25 @@ public class Statistics {
   
   public void drawStats() {
     
+    fill(255);
+    textSize(60);
+    textAlign(CENTER,TOP);
+    text("Pacman", 280, -5);
+    
+    textSize(25);
+    textAlign(RIGHT,BOTTOM);
+    text("" + score, 560, 720);
+    
+    color yellow = color(255, 255, 0);
+    fill(yellow);
+    for (int i = 0; i < lives; i++) {
+      arc(20 + (i * 30), 700, 25, 25, PI/12, 11* PI/6, PIE);
+    
+    }
+    
+    
+    
+    
   }
   
   public void nextStep() {
