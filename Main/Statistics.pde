@@ -55,6 +55,7 @@ public class Statistics {
       text("Press Any Key to Continue", 280, 600);
     } else if (reset) {
       reset();
+      b = new Board("board.dat");
     } else if (!reset && gameplay) {
       nextStep();
       drawStats();
@@ -74,7 +75,6 @@ public class Statistics {
       g.reset();
     }
     p = new PacMan();
-    b = new Board("board.dat");
     reset = false;
     gameplay = true;
   }
@@ -143,7 +143,7 @@ public class Statistics {
       }
     }
     
-    if (b.count() <= 0) {
+    if (b.count() <= 0){
       level += 1;
       reset = true;
     }
@@ -163,7 +163,7 @@ public class Statistics {
       startscreen = false;
       reset = true;
     } else if (death) {
-      reset = true;
+      reset();
       death = false;
     } else if (!reset && gameplay) {
       p.keyPressed();
