@@ -20,7 +20,6 @@ public class Statistics {
   private Board b;
   private Ghost blinky, pinky, inky, clyde;
   private Ghost[] Spooky;
-  private ArrayList<Ghost> inhouse;
   private HighScore high;
   
   // CONSTRUCTOR ===========================================================================================================================================================================================  
@@ -30,19 +29,19 @@ public class Statistics {
     start = new Start();
     p = new PacMan();
     b = bor;
-    blinky = new Ghost(color(255,39,40),13,11);
-    pinky = new Ghost(color(243,176,67),11,14);
-    inky = new Ghost(color(94,219,192),13,14);
-    clyde = new Ghost(color(240,178,202),15,14);
+    AStar alpha = new AStar(p.getX(),p.getY(), 13, 11,b.boarddata());
+    blinky = new Ghost(color(255,39,40),13,11, alpha.aStar());
+    alpha = new AStar(p.getX(), p.getY(), 11, 14,b.boarddata());
+    pinky = new Ghost(color(243,176,67),11,14, alpha.aStar());
+    alpha = new AStar(p.getX(), p.getY(), 13, 14,b.boarddata());
+    inky = new Ghost(color(94,219,192),13,14, alpha.aStar());
+    alpha = new AStar(p.getX(), p.getY(), 15, 14,b.boarddata());
+    clyde = new Ghost(color(240,178,202),15,14, alpha.aStar());
     Spooky = new Ghost[4];
     Spooky[0] = blinky;
     Spooky[1] = pinky;
     Spooky[2] = inky;
     Spooky[3] = clyde;
-    inhouse = new ArrayList<Ghost>();
-    inhouse.add(pinky);
-    inhouse.add(inky);
-    inhouse.add(clyde);
   }
   
  // DRAW() ================================================================================================================================================================================================
@@ -78,7 +77,7 @@ public class Statistics {
   
   public void reset() {
     for (Ghost g: Spooky) {
-      g.reset();
+      //g.reset();
     }
     p = new PacMan();
     reset = false;
@@ -113,7 +112,7 @@ public class Statistics {
           death = true;
           reset = true;
         } else {
-          g.reset();
+          //g.reset();
           score += 100;
         }
       }

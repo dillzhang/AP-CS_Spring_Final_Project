@@ -29,7 +29,7 @@ public class Ghost {
       0, -1
     }
   };
-  private boolean controllable;
+  private ArrayList<int[]> movements;
 
   //LOCATION
   private int xbor, ybor, xpos, ypos, defx, defy;
@@ -40,18 +40,19 @@ public class Ghost {
 
   // CONSTRUCTOR ===========================================================================================================================================================================================
 
-  public Ghost(color s, int x, int y) {
+  public Ghost(color s, int x, int y, ArrayList<int[]> move) {
     defx = x;
     defy = y;
     skin = s;
-    reset();
+    reset(move);
   }
   
-  public void reset() {
+  public void reset(ArrayList<int[]> move) {
     xbor = defx;
     xpos = 4;
     ybor = defy;
     ypos = 2;
+    movements = move;
   }
   
   // METHODS ===============================================================================================================================================================================================
